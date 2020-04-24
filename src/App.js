@@ -2,41 +2,41 @@ import React, { Component } from 'react';
 import './App.css';
 
 const helloworld = 'Bonjour';
-  const list = [
-    {
-      title: 'React',
-      url: 'https://reactjs.org/',
-      author: 'Jordan Walke',
-      num_comments: 3,
-      points: 4,
-      objectID: 0,
-    },
-    {
-      title: 'Redux',
-      url: 'https://redux.js.org/',
-      author: 'Dan Abramov, Andrew Clark',
-      num_comments: 2,
-      points: 5,
-      objectID: 1,
-    },
-    {
-      title: 'Google',
-      url: 'https://google.com/',
-      author: 'No one',
-      num_comments: 6,
-      points: 204,
-      objectID: 2,
-    },
-    {
-      title: 'Facebook',
-      url: 'https://facebook.com/',
-      author: 'Mark Zukerberg',
-      num_comments: 1,
-      points: 8,
-      objectID: 3,
-    },
-  ];
-  const name = 'name'
+const list = [
+  {
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+  {
+    title: 'Google',
+    url: 'https://google.com/',
+    author: 'No one',
+    num_comments: 6,
+    points: 204,
+    objectID: 2,
+  },
+  {
+    title: 'Facebook',
+    url: 'https://facebook.com/',
+    author: 'Mark Zukerberg',
+    num_comments: 1,
+    points: 8,
+    objectID: 3,
+  },
+];
+const name = 'name'
 const isSearched = searchTerm => item =>
     item.title.toLowerCase().includes(searchTerm);
 class App extends Component {
@@ -65,6 +65,7 @@ class App extends Component {
     this.setState({searchTerm: event.target.value});
   }
   render() {
+    const {searchTerm, list} = this.state;
     return (
       <div className="App">
         <h2>{helloworld+' '+this.state.name}</h2>
@@ -78,7 +79,7 @@ class App extends Component {
 
           </input>
         </form>
-        {this.state.list.filter(isSearched(this.state.searchTerm)).map(item =>
+        {list.filter(isSearched(searchTerm)).map(item =>
             <div key={item.objectID}>
               <span>
                 <a href={item.url}>{item.title}</a>
