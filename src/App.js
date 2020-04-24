@@ -20,19 +20,22 @@ const helloworld = 'Bonjour';
       objectID: 1,
     },
   ];
-
+  const name = 'name'
 
 class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        list: list,
+        list,
+        [name]: "Geoffrey Guez",
+        count1: 3,
+        count2: 5,
       };
   }
   render() {
     return (
       <div className="App">
-        <h2>{helloworld} {this.user}</h2>
+        <h2>{helloworld+' '+this.state.name}</h2>
         {this.state.list.map(item =>
             <div key={item.objectID}>
               <span>
