@@ -99,7 +99,7 @@ class Search extends Component {
     const {value, onChange, children } = this.props;
     return (
       <form>
-          {children} <input 
+          {children}<input 
           type='text'
           value={value}
           onChange={onChange}
@@ -126,7 +126,6 @@ class Table extends Component {
               <span>
                 <button 
                 onClick={() => onDismiss(item.objectID)}
-                type='button'
                 >
                   Supprimer
                 </button>
@@ -134,6 +133,26 @@ class Table extends Component {
             </div>
         )}
       </div>
+    );
+  }
+}
+
+class button extends Component {
+  render() {
+    const {
+      onClick,
+      className,
+      children,
+    } = this.props;
+
+    return (
+      <button
+        onClick,
+        className= '',
+        type='button',
+      >
+        {children}
+      </button>
     );
   }
 }
